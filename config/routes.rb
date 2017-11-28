@@ -6,13 +6,15 @@ Rails.application.routes.draw do
   mount Knock::Engine => "/knock"
 
   #add our register route
-  post 'login', to: 'users#create'
-
+  post 'signup', to: 'users#create'
+  get 'users', to: 'users#index'
+  
   resources :perfumes
 
   resources :users, only: :create do
     collection do
       post 'login'
+
     end
   end 
 
