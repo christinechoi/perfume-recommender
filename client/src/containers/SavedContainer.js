@@ -4,7 +4,7 @@ import SavedRecommendations from '../components/SavedRecommendations';
 import { connect } from 'react-redux';
 
 import { Button, Header, Icon } from 'semantic-ui-react';
-import { fetchSavedRecommendation, saveRecommendation } from '../actions/perfumesActions';
+import { fetchSavedRecs, saveRecommendation } from '../actions/perfumesActions';
 import { bindActionCreators } from 'redux';
 
 class RecommendationsContainer extends Component {
@@ -12,8 +12,7 @@ class RecommendationsContainer extends Component {
     super(props);
 
     this.state = {
-      
-      savedRecommendations: []
+      savedRecommendations: ''
     }
   }
 
@@ -24,16 +23,10 @@ class RecommendationsContainer extends Component {
   }
 
   render() {
-    // {debugger};
+    {debugger};
 
 
-  
-    // { (this.props.recommendations.length === 0) ? null :
-    //   <RecommendationsList 
-    //     recommendations={this.props.recommendations} 
-    //     handleOnClick={this.handleOnClick} 
-    //   />
-    // }
+
     return (
    
       <div>
@@ -45,9 +38,9 @@ class RecommendationsContainer extends Component {
           </Header.Content>
         </Header>
 
-
+        
         <SavedRecommendations savedRecommendations={this.props.savedRecommendations}/>
-
+        
       </div>
     
     )
@@ -55,9 +48,8 @@ class RecommendationsContainer extends Component {
 }
 
 const mapStateToProps = state => {
+  {debugger};
   return {
-    recommendations: state.perfumes.recommendations,
-    basedOn: state.perfumes.basedOn,
     savedRecommendations: state.perfumes.savedRecommendations
   };
 };
@@ -66,7 +58,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     saveRecommendation: saveRecommendation,
-    fetchSavedRecommendation: fetchSavedRecommendation
+    fetchSavedRecs: fetchSavedRecs
   }, dispatch);
 };
 

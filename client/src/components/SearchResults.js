@@ -5,7 +5,6 @@ import { Card, Image, Icon, Button } from 'semantic-ui-react';
 const SearchResults = (props) => {
  
   return (
-
     <Card.Group className='ui five column doubling stackable grid container centered'> {
       props.perfumes.map((perfume, index) => (  
         <Card >

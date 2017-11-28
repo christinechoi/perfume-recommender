@@ -1,15 +1,7 @@
 import React from 'react';
 import { Card, Button, Image } from 'semantic-ui-react';
 
-
 const SavedRecommendationsList = (props) => {
-  // {debugger};
-
-   // <Button 
-   //            onClick={props.handleOnClick.bind(this, recommendation)}
-   //            basic fluid color='blue'> Save Recommendation
-            // </Button> 
-
   return (
     
     <Card.Group className='ui five column doubling stackable grid container'> {
