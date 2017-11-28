@@ -10,7 +10,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'LOGIN_REQUEST':
-      {debugger};
+      // {debugger};
       return {
         ...state,
         isAuthenticating: true
@@ -36,6 +36,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isAuthenticating: false,
+        isAuthenticated: false,
         currentUser: null,
         errorMessage: null
       }
