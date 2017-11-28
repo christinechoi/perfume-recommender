@@ -18,6 +18,10 @@ class PerfumesListContainer extends Component {
     };
   }
 
+  testFunction = event => {
+    {debugger};
+  }
+
   removeOnClick = (perfume, event) => {
     event.preventDefault();
     this.props.deletePerfume(event.target, perfume);
@@ -42,6 +46,7 @@ class PerfumesListContainer extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
+    {debugger};
     this.props.fetchPerfume(this.state);
   }
 
@@ -71,13 +76,13 @@ class PerfumesListContainer extends Component {
                 
                 <Form className="ui segment"
                   size='big'
-                  onSubmit={(event) => this.handleOnSubmit(event)}>
+                  onSubmit={(event) => this.handleOnSubmit(event)} >
                   <Form.Field className='ui center aligned'></Form.Field >
                   <Form.Input 
                     icon='search'
                     iconPosition='left'
                     value={this.state.value}
-                    onChange ={this.handleChange}
+                    onChange={this.handleChange}
                     type="text" />
 
                   <Form.Button color='teal' size='massive' fluid > Search for Perfume </Form.Button>
