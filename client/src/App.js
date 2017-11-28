@@ -24,7 +24,7 @@ class App extends Component {
           <Route exact path="/signin" component={SignInContainer} />
           <Route exact path="/users/login" component={LogInContainer} />
           <RecommendationsContainer />
-          <Route exact path="/savedrecommendations" component={SavedContainer} />
+          <Route path="/savedrecommendations" component={SavedContainer} />
         </div>
       </Router>
     );

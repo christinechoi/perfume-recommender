@@ -1,6 +1,5 @@
 import fetch from 'isomorphic-fetch';
 
-
 export function fetchPerfume(input) {
   return (dispatch) => {
     dispatch({ type: 'START_FETCHING_PERFUMES_REQUEST' });
@@ -49,9 +48,7 @@ export function saveRecommendation(target, recommendation) {
   const API_URL = process.env.REACT_APP_API_URL
 
   return (dispatch) => {
-
     return fetch('http://localhost:3001/perfumes', {
-
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -65,16 +62,15 @@ export function saveRecommendation(target, recommendation) {
   }
 }
 
-export function fetchSavedRecommendation(input) {
+export function fetchSavedRecs(input) {
   return (dispatch) => {
-    {debugger};
-
+    // {debugger};
     return fetch('http://localhost:3001/perfumes')
       .then(response => {
         console.log(response);
         return response.json()
       }).then(responseJson => {
-        dispatch({type: 'FETCH_SAVED_RECOMMENDATION', payload: responseJson})
+        dispatch({type: 'FETCH_SAVED_RECS', payload: responseJson})
     })
   }
 }

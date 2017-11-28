@@ -14,7 +14,7 @@ export function signIn({ email, password }, history ) {
         "password" : password
       }})
     }).then(response => {
-      {debugger};
+      // {debugger};
         return response.json().then(response =>  {
         if (!response.errors) {
           // {debugger};
@@ -36,10 +36,9 @@ export function logOut(event, history) {
 }
 
 export function logIn({ email, password }, history ) {
-
+  // {debugger};
   return (dispatch) => {
     return fetch('http://localhost:3001/users/login', {
-
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
@@ -67,13 +66,10 @@ export function logIn({ email, password }, history ) {
 
 export function saveRecommendation(target, recommendation) {
   // {debugger};
-
   const API_URL = process.env.REACT_APP_API_URL
 
   return (dispatch) => {
-
     return fetch('http://localhost:3001/perfumes', {
-
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
