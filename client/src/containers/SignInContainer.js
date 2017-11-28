@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Grid, Form, Button } from 'semantic-ui-react';
-
-
-
+import { signIn } from '../actions/userActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class SignInContainer extends Component {
   constructor(props) {
     super(props); {
 
       this.state = {
-        value: ''
+        email: '',
+        password: ''
       }
     }
   }
@@ -17,41 +18,41 @@ class SignInContainer extends Component {
   handleOnSubmit(event) {
     event.preventDefault();
     {debugger};
-    this.props.createUser(event);
+    this.props.signIn(this.state);
   }
 
+  handleLogin(event) {
+    event.preventDefault();
+    {debugger};
+    this.props.LogIn(this.state);
+    this.props.history.push('/users/login')
+  }
 
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
 
   render() {
-
-
- // <Form className="ui segment"
- //                  size='big'
- //                  onSubmit={(event) => this.handleOnSubmit(event)}>
- //                  <Form.Field className='ui center aligned'></Form.Field >
- //                  <Form.Input 
- //                    icon='search'
- //                    iconPosition='left'
- //                    value={this.state.value}
- //                    onChange ={this.handleChange}
- //                    type="text" />
-
- //                  <Form.Button color='teal' size='massive' fluid > Search for Perfume </Form.Button>
-
- //                </Form>
     return (
       
       <div>
-
-        <Form>
+        <Form onSubmit={this.handleOnSubmit.bind(this)} >
           <Form.Field>
+            
             <label>Email</label>
-            <input placeholder='Email address' />
+            <input 
+              type="email" 
+              name="email"
+              onChange={this.handleChange.bind(this)}   />
           </Form.Field> 
 
           <Form.Field>
             <label>Password</label>
-            <input placeholder='Password' />
+            <input 
+              type="password"
+              name="password" 
+              onChange={this.handleChange.bind(this)} />
           </Form.Field>
 
           <Button type='submit'>Submit</Button>
@@ -60,8 +61,12 @@ class SignInContainer extends Component {
       </div>
     )
   }
-
-
 }
 
-export default SignInContainer;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    signIn: signIn       
+  }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(SignInContainer);
