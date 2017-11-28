@@ -4,7 +4,7 @@ const initialState = {
   selectedPerfumes: [],
   recommendations: [],
   basedOn: [],
-  savedRecommendation: []
+  savedRecommendations: []
 }
 
 export default (state = initialState, action) => {
@@ -56,15 +56,15 @@ export default (state = initialState, action) => {
       {debugger};
       return {
         ...state,
-        savedRecommendation: state.savedRecommendation.concat(action.payload.savedRecommendation)
+        savedRecommendations: state.savedRecommendations.concat(action.payload.savedRecommendation)
       }
       
-    case 'FETCH_SAVED_RECOMMENDATION':
+    case 'FETCH_SAVED_RECS':
       {debugger};
 
       return {
         ...state,
-        savedRecommendation: state.savedRecommendation.concat(action.payload.savedRecommendation)
+        savedRecommendations: state.savedRecommendations.concat(action.payload)
       }
     default:
       // {debugger};
