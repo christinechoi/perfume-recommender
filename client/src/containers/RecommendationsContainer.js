@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import RecommendationsList from '../components/RecommendationsList';
 import { connect } from 'react-redux';
-
-import { Button, Header, Icon } from 'semantic-ui-react';
+import { Segment, Button, Header, Icon } from 'semantic-ui-react';
 import { fetchSavedRecommendation, saveRecommendation } from '../actions/perfumesActions';
 import { bindActionCreators } from 'redux';
 
@@ -30,20 +29,20 @@ class RecommendationsContainer extends Component {
   }
 
   render() {
-    // {debugger};
+    {debugger};
     return (
-   
       <div>
-        
+
+      <Segment></Segment>
       
-        { (this.props.recommendations.length === 0) ? null :
+        {(this.props.recommendations.length === 0) ? null :
           <RecommendationsList 
             recommendations={this.props.recommendations} 
-            handleOnClick={this.handleOnClick} 
-          />
+            handleOnClick={this.handleOnClick} > 
+            Recommendations below: 
+          </RecommendationsList>
         }
       </div>
-    
     )
   }
 }
@@ -55,7 +54,6 @@ const mapStateToProps = state => {
     savedRecommendations: state.perfumes.savedRecommendations
   };
 };
-
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({

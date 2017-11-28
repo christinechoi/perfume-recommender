@@ -1,11 +1,10 @@
 import React from 'react';
-import { Card, Button, Image, Divider } from 'semantic-ui-react';
+import { Grid, Card, Button, Image, Divider } from 'semantic-ui-react';
 
 const SelectedPerfumes = (props) => {
 
   return (
     <div className='selected Perfumes' > {
-      
       <Card.Group className='ui eight column doubling stackable grid container centered'> {
         props.selectedPerfumes.map((perfume, index) => (  
             
@@ -24,16 +23,15 @@ const SelectedPerfumes = (props) => {
           </Card>
         ))}
       </Card.Group>
-    }
-    <Divider></Divider>
-    
-    <Button 
-      size='big' 
-      color='blue' 
-      onClick={props.handleClick.bind(this, props.selectedPerfumes.map(item => item.id))} 
-      > Get Recommendation! 
-    </Button>
-
+      }
+      <Divider></Divider>
+      <Button 
+        fluid
+        size='big' 
+        color='blue' 
+        onClick={props.handleClick.bind(this, props.selectedPerfumes.map(item => item.id))} 
+        > Get Recommendation! 
+      </Button>
     </div>
   );
 };
