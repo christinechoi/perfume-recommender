@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, withRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
 import { logOut } from '../actions/userActions';
+import { fetchSavedRecs } from '../actions/perfumesActions';
 import { Button, Container, Segment, Menu } from 'semantic-ui-react'
 
 class NavBarContainer extends Component {
@@ -15,12 +16,21 @@ class NavBarContainer extends Component {
     }
   }
 
-  handleLogout(event) {
+
+  handleLogout = event => {
     event.preventDefault();
-    {debugger};
-    this.props.logOut();
+    const { logOut, history } = this.props;
+    logOut(this.state);
+    history.push('/')
   }
 
+  handleClick = event => {
+    event.preventDefault();
+    const { fetchSavedRecs, history } = this.props;
+    fetchSavedRecs(this.state);
+    history.push('/savedrecommendations')
+  }
+  
   render() {
     {debugger};
     return (
@@ -34,15 +44,17 @@ class NavBarContainer extends Component {
             >Home
             </Menu.Item>
 
-            { this.state.isAuthenticated ? 
+            { this.state.isAuthenticated ?            
             <Menu.Item
-              as={Link}
-              to='/recommendations'
+              onClick={this.handleClick.bind(this)}
+              
               name='All Saved Recommendations'>
               All Saved Recommendations
-            </Menu.Item> : null }
+            </Menu.Item> : null
+            }
 
             { this.state.isAuthenticated ? null :
+            
             <Menu.Item
               as={Link}
               to='/signin'
@@ -73,22 +85,20 @@ class NavBarContainer extends Component {
   )}
 }
 
-
 const mapStateToProps = (state) => { 
-  {debugger};
   return { 
     isAuthenticated: state.user.isAuthenticated
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
- 
   return bindActionCreators({
-    logOut: logOut
+    logOut: logOut,
+    fetchSavedRecs: fetchSavedRecs
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBarContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBarContainer));
 
 
 
