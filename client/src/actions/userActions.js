@@ -1,38 +1,72 @@
 import fetch from 'isomorphic-fetch';
 
-
-export function fetchPerfume(input) {
+export function signIn({ email, password }, history ) {
+  // {debugger};
   return (dispatch) => {
-    dispatch({ type: 'START_FETCHING_PERFUMES_REQUEST' });
-    // {debugger};
-    let searchTerm = input.value
-    return fetch('http://scentsee.com/rest/collection/queryFull?query=' + searchTerm)
-      .then(response => {
-        return response.json()
-      }).then(responseJson => {
-        dispatch({type: 'FETCH_PERFUME', payload: responseJson})
+    return fetch('http://localhost:3001/signup', {
+
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({ "user": {
+        "email" : email,
+        "password" : password
+      }})
+    }).then(response => {
+      {debugger};
+        return response.json().then(response =>  {
+        if (!response.errors) {
+          // {debugger};
+          dispatch({type: 'LOGIN_REQUEST', payload: JSON.parse(response.user)});
+          return Promise.reject(response.errors)
+        } else {
+          // {debugger};
+          dispatch({type: 'LOGIN_REQUEST', payload: JSON.parse(response.user)});
+        }
+      }).catch(err => console.log("Error: ", err))
     })
   }
 }
 
+export function logOut(event, history) {
+  // {debugger};
+  localStorage.removeItem('token', localStorage.token);
+  return {type: 'LOGOUT'};
+}
 
-export function getRecommendation(target, ids) {
+export function logIn({ email, password }, history ) {
+
   return (dispatch) => {
-    // {debugger};
+    return fetch('http://localhost:3001/users/login', {
 
-    return fetch('http://scentsee.com/rest/recommendation/byFavoriteFragranceId?ids[]=' + ids)
-      .then(response => {
-        console.log(response);
-        return response.json()
-      }).then(responseJson => {
-        dispatch({type: 'GET_RECOMMENDATION', payload: responseJson})
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+        "email" : email,
+        "password" : password
+      })
+    }).then(response => {
+      // {debugger};
+        return response.json().then(response =>  {
+        if (!response.status == 'ok') {
+          // {debugger};
+          dispatch({type: 'LOGIN_REQUEST', payload: JSON.parse(response.user)});
+          return Promise.reject(response)
+        } else {
+          // {debugger};
+          localStorage.setItem('token', response.token)
+          dispatch({type: 'LOGIN_SUCCESS', payload: JSON.parse(response.token)});
+        }
+      }).catch(err => console.log("Error: ", err))
     })
   }
 }
-
 
 export function saveRecommendation(target, recommendation) {
-  {debugger};
+  // {debugger};
 
   const API_URL = process.env.REACT_APP_API_URL
 
