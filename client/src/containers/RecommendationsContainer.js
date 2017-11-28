@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import RecommendationsList from '../components/RecommendationsList';
 import { connect } from 'react-redux';
 import { Segment, Button, Header, Icon } from 'semantic-ui-react';
-import { fetchSavedRecommendation, saveRecommendation } from '../actions/perfumesActions';
+import { saveRecommendation, fetchSavedRecs } from '../actions/perfumesActions';
+import { withRouter} from 'react-router-dom';
+
 import { bindActionCreators } from 'redux';
 
 class RecommendationsContainer extends Component {
@@ -10,26 +12,28 @@ class RecommendationsContainer extends Component {
     super(props);
 
     this.state = {
-      recommendations: [],
-      basedOn: [],
-      savedRecommendations: []
-    }
+      recommendations: []
+    };
   }
+
+
 
   handleOnClick = (recommendation, event)  => {
     event.preventDefault();
+    const { saveRecommendation, history } = this.props;
     {debugger};
-    this.props.saveRecommendation(event.target, recommendation);
+    saveRecommendation(event.target, recommendation);
+    history.push('/savedrecommendations')
   }
 
   handleClick = (event) => {
     event.preventDefault();
-    {debugger};
+    // {debugger};
     this.props.fetchRecommendation(event.target)
   }
 
   render() {
-    {debugger};
+    // {debugger};
     return (
       <div>
 
@@ -58,11 +62,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     saveRecommendation: saveRecommendation,
-    fetchSavedRecommendation: fetchSavedRecommendation
+    fetchSavedRecs: fetchSavedRecs
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecommendationsContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RecommendationsContainer));
 
 
   

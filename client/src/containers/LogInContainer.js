@@ -16,17 +16,11 @@ class LogInContainer extends Component {
     }
   } 
 
-  handleOnSubmit(event) {
+  handleOnSubmit = event => {
     event.preventDefault();
-    {debugger};
-    this.props.logIn(this.state);
-  }
-
-  handleLogin(event) {
-    event.preventDefault();
-    {debugger};
-    this.props.logIn(this.state);
-    this.props.history.push('/')
+    const { logIn, history } = this.props;
+    logIn(this.state);
+    history.push('/')
   }
 
   handleChange = event => {
@@ -39,8 +33,6 @@ class LogInContainer extends Component {
     return (
       
       <div>
-
-
         <Form onSubmit={this.handleOnSubmit.bind(this)} >
           <Form.Field>
             <label>Email</label>
@@ -64,6 +56,7 @@ class LogInContainer extends Component {
     )
   }
 }
+
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
