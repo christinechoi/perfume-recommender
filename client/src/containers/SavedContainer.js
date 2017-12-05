@@ -4,41 +4,42 @@ import SavedRecommendations from '../components/SavedRecommendations';
 import { connect } from 'react-redux';
 
 import { Button, Header, Icon } from 'semantic-ui-react';
-import { fetchSavedRecs, saveRecommendation } from '../actions/perfumesActions';
+import { saveRecommendation, fetchSavedRecs } from '../actions/perfumesActions';
 import { bindActionCreators } from 'redux';
 
-class RecommendationsContainer extends Component {
+class SavedContainer extends Component {
   constructor(props) {
     super(props);
 
+    this.props.fetchSavedRecs();
+
     this.state = {
-      savedRecommendations: ''
+      savedRecommendations: []
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.props.fetchSavedRecs();
   }
 
   handleClick = (event) => {
     event.preventDefault();
-    {debugger};
     this.props.fetchRecommendation(event.target)
   }
 
   render() {
-    {debugger};
-
-
-
+    // {debugger};
     return (
    
       <div>
         <Header></Header>
-        <Header as='h2' icon textAlign='center'>
+        <Header icon textAlign='center'>
           <Icon name='flask' circular />
-          <Header.Content as='h1'> 
+          <Header.Content as='h2'> 
             All Saved Recommendations 
           </Header.Content>
         </Header>
 
-        
         <SavedRecommendations savedRecommendations={this.props.savedRecommendations}/>
         
       </div>
@@ -48,7 +49,7 @@ class RecommendationsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  {debugger};
+  // {debugger};
   return {
     savedRecommendations: state.perfumes.savedRecommendations
   };
@@ -62,7 +63,7 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecommendationsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SavedContainer);
 
 
   

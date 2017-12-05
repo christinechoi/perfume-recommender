@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Card, Button, Image, Divider } from 'semantic-ui-react';
 
 const SelectedPerfumes = (props) => {
-
+  // {debugger};
   return (
     <div className='selected Perfumes' > {
       <Card.Group className='ui eight column doubling stackable grid container centered'> {

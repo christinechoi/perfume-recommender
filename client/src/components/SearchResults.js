@@ -11,7 +11,7 @@ const SearchResults = (props) => {
           <Image src={perfume.pictureURL} size='big' />
           <Card.Content extra > 
             <Button 
-              onClick={props.handleOnClick.bind(this, perfume)}
+              onClick={() => props.handleOnClick(perfume)}
               basic fluid color='blue'> Add to List
             </Button> 
           </Card.Content> 

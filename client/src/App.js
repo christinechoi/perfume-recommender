@@ -23,7 +23,7 @@ class App extends Component {
           <Route exact path="/" component={PerfumesListContainer} />
           <Route exact path="/signin" component={SignInContainer} />
           <Route exact path="/users/login" component={LogInContainer} />
-          <RecommendationsContainer />
+          <Route exact path="/recommendations" component={RecommendationsContainer} />
           <Route path="/savedrecommendations" component={SavedContainer} />
         </div>
       </Router>

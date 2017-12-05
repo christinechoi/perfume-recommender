@@ -1,5 +1,8 @@
 import React from 'react';
 import { Card, Button, Image } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { likeRecommendation } from '../actions/perfumesActions';
 
 class CardComponent extends React.Component {
 
@@ -11,27 +14,25 @@ class CardComponent extends React.Component {
     };
   }
 
-  handleClick = () => {
-    {debugger};
-    this.setState({
-      likes: this.state.likes + 1
-    });
-    {debugger};
+  handleClick = (recommendation, event) => {
+    this.props.likeRecommendation(recommendation) 
   }
 
   render() {
 
+    // {debugger};
     return (
       <div>
       <Card>
-        <Image src={this.props.recommendation.url}  />
+        <Image src={this.props.recommendation.pictureURL}  />
         <Card.Content extra > 
           <Button
             content='Like'
             icon='heart'
-            label={this.state.likes}
+            label={this.props.recommendation.likes}
             labelPosition='right'
-            onClick={() => this.handleClick(this)}  
+            onClick={() => this.handleClick(this.props.recommendation)} 
+             
           />
         </Card.Content> 
         <Card.Content >
@@ -42,6 +43,21 @@ class CardComponent extends React.Component {
       </div>
     );
   }
+
+
+}
+
+const mapStateToProps = (state) => { 
+  // {debugger};
+  return { 
+    likes: state.perfumes.likes
+  };
 };
 
-export default CardComponent;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    likeRecommendation: likeRecommendation    
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardComponent);
