@@ -4,13 +4,13 @@ const initialState = {
   selectedPerfumes: [],
   recommendations: [],
   basedOn: [],
-  savedRecommendations: []
+  savedRecommendations: [],
+  likes: 0
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_PERFUME':
-      // {debugger};
       let uniqueArray = [];
 
       action.payload.filter(function(perfume) {
@@ -29,46 +29,55 @@ export default (state = initialState, action) => {
       return { ...state, perfumes: lastArray}
     case 'ADD_PERFUME':
      
-      {debugger};
-      return {  
+      let newState =  {  
         ...state, 
-        selectedPerfumes: state.selectedPerfumes.concat(action.perfume)
+        selectedPerfumes: state.selectedPerfumes.concat(action.payload)
       }
 
+      return newState
+
     case 'DELETE_PERFUME':
-      // {debugger};
       let moddedArray = state.selectedPerfumes.filter(function(perfume) {
         return perfume.id != action.perfume.id
       })
-
-      // {debugger};
       return { 
         ...state, 
         selectedPerfumes: moddedArray
       };  
     case 'GET_RECOMMENDATION':
-      {debugger};
       return { 
         ...state, 
         recommendations: state.recommendations.concat(action.payload.recommendations),
-        basedOn: state.basedOn.concat(action.payload.basedOn) };  
-    case 'SAVE_RECOMMENDATION':
-      {debugger};
-      return {
-        ...state,
-        savedRecommendations: state.savedRecommendations.concat(action.payload.savedRecommendation)
-      }
-      
-    case 'FETCH_SAVED_RECS':
-      {debugger};
+        selectedPerfumes: []
+      };
 
+    case 'FETCH_SAVED_RECS':
+      // {debugger};
       return {
         ...state,
-        savedRecommendations: state.savedRecommendations.concat(action.payload)
+        savedRecommendations: action.payload
+      }
+    case 'SAVE_RECOMMENDATION':
+      // {debugger};
+      return {
+        ...state,
+        savedRecommendations: state.savedRecommendations.concat(action.payload),
+        recommendations: []
+      }
+    case 'LIKE_RECOMMENDATION':
+      var outdatedPerfumeIndex = state.savedRecommendations.findIndex(perfume => perfume.id === action.payload.id)
+      // {debugger};
+      var testState = state.savedRecommendations.splice(outdatedPerfumeIndex, 1, action.payload)
+      //this is deleting all other savedRecs! bc splice return the added/deleted one
+      var newState = state.savedRecommendations.splice(outdatedPerfumeIndex, 1, action.payload)
+      // {debugger};
+      return {
+        ...state,
+        savedRecommendations: state.savedRecommendations
+
       }
     default:
-      // {debugger};
-      return state;
+      return state
   }   
 };
 

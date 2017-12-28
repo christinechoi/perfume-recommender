@@ -6,6 +6,7 @@ import SelectedPerfumes from '../components/SelectedPerfumes';
 import { fetchPerfume, addPerfume, deletePerfume, getRecommendation } from '../actions/perfumesActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter} from 'react-router-dom';
 
 class PerfumesListContainer extends Component {
   constructor(props) {
@@ -17,23 +18,21 @@ class PerfumesListContainer extends Component {
     };
   }
 
-  testFunction = event => {
-    {debugger};
-  }
-
   removeOnClick = (perfume, event) => {
     event.preventDefault();
     this.props.deletePerfume(event.target, perfume);
   }
 
-  handleOnClick = (perfume, event)  => {
-    event.preventDefault();
-    this.props.addPerfume(event.target, perfume) 
+  handleOnClick = (perfume) => {
+    console.log(perfume);
+    this.props.addPerfume(perfume);
   }
 
   handleClick = (idArray, event) => {
     event.preventDefault();
-    this.props.getRecommendation(event.target, idArray)
+    const { getRecommendation, history } = this.props;
+    getRecommendation(event.target, idArray)
+    history.push('/recommendations')
   }
 
   handleChange = event => {
@@ -44,8 +43,11 @@ class PerfumesListContainer extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    {debugger};
+    // {debugger};
     this.props.fetchPerfume(this.state);
+    this.setState({
+      value: ''
+    });
   }
 
   render() {
@@ -88,8 +90,8 @@ class PerfumesListContainer extends Component {
         }
 
         <Segment></Segment>
-
-        {(this.props.recommendations.length > 0) ? null :
+          
+          
           <SearchResults 
             perfumes={this.props.perfumes} 
             handleOnClick={this.handleOnClick} 
@@ -101,6 +103,8 @@ class PerfumesListContainer extends Component {
   }
 }
 
+
+//{(this.props.recommendations.length > 0) ? null :
 const mapStateToProps = (state) => { 
   // {debugger};
   return { 
@@ -120,6 +124,6 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PerfumesListContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PerfumesListContainer));
 
 

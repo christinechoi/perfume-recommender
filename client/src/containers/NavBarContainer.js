@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, withRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
 import { logOut } from '../actions/userActions';
-import { fetchSavedRecs } from '../actions/perfumesActions';
 import { Button, Container, Segment, Menu } from 'semantic-ui-react'
 
 class NavBarContainer extends Component {
@@ -32,7 +31,7 @@ class NavBarContainer extends Component {
   }
   
   render() {
-    {debugger};
+    //{debugger};
     return (
       <div>
         <Container >
@@ -46,9 +45,12 @@ class NavBarContainer extends Component {
 
             { this.state.isAuthenticated ?            
             <Menu.Item
-              onClick={this.handleClick.bind(this)}
+            as={Link}
+            to='/savedrecommendations'
+            name='savedrecommendations'
+             
               
-              name='All Saved Recommendations'>
+            name='All Saved Recommendations'>
               All Saved Recommendations
             </Menu.Item> : null
             }
@@ -85,6 +87,8 @@ class NavBarContainer extends Component {
   )}
 }
 
+// onClick={this.handleClick.bind(this)}
+
 const mapStateToProps = (state) => { 
   return { 
     isAuthenticated: state.user.isAuthenticated
@@ -93,8 +97,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    logOut: logOut,
-    fetchSavedRecs: fetchSavedRecs
+    logOut: logOut
   }, dispatch);
 };
 

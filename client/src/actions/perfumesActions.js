@@ -14,10 +14,10 @@ export function fetchPerfume(input) {
   }
 }
 
-export function addPerfume(target, perfume) {
+export function addPerfume(perfume) {
   // {debugger};
   return (dispatch) => {
-    dispatch({type: 'ADD_PERFUME', payload: target, perfume});
+    dispatch({type: 'ADD_PERFUME', payload: perfume});
   }
 }
 
@@ -42,26 +42,6 @@ export function getRecommendation(target, ids) {
   }
 }
 
-export function saveRecommendation(target, recommendation) {
-  {debugger};
-
-  const API_URL = process.env.REACT_APP_API_URL
-
-  return (dispatch) => {
-    return fetch('http://localhost:3001/perfumes', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(recommendation)
-      }).then(response => {
-        return response.json()
-      }).then(responseJson => {
-        dispatch({type: 'SAVE_RECOMMENDATION', payload: responseJson, recommendation})    
-    })
-  }
-}
-
 export function fetchSavedRecs(input) {
   return (dispatch) => {
     // {debugger};
@@ -74,5 +54,52 @@ export function fetchSavedRecs(input) {
     })
   }
 }
+
+
+export function saveRecommendation(target, recommendation) {
+  // {debugger};
+
+  const API_URL = process.env.REACT_APP_API_URL
+
+  return (dispatch) => {
+    return fetch('http://localhost:3001/perfumes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(recommendation)
+      }).then(response => {
+
+        return response.json()
+      }).then(responseJson => {
+        dispatch({type: 'SAVE_RECOMMENDATION', payload: responseJson, recommendation})    
+    })
+  }
+}
+
+
+export function likeRecommendation(recommendation) {
+  // {debugger};
+
+  const API_URL = process.env.REACT_APP_API_URL
+
+  var modPerfume = Object.assign({}, recommendation, {likes: recommendation.likes + 1})
+  // {debugger};
+  return (dispatch) => {
+    return fetch('http://localhost:3001/perfumes/' + `${recommendation.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: 
+        JSON.stringify(modPerfume)
+      }).then(response => {
+        return response.json()
+      }).then(responseJson => {
+        dispatch({type: 'LIKE_RECOMMENDATION', payload: responseJson, recommendation})    
+    })
+  }
+}
+
 
 
