@@ -45,7 +45,7 @@ export function getRecommendation(target, ids) {
 export function fetchSavedRecs(input) {
   return (dispatch) => {
     // {debugger};
-    return fetch('http://localhost:3001/perfumes')
+    return fetch(`${API_HOST}/perfumes`)
       .then(response => {
         console.log(response);
         return response.json()
@@ -62,7 +62,7 @@ export function saveRecommendation(target, recommendation) {
   const API_URL = process.env.REACT_APP_API_URL
 
   return (dispatch) => {
-    return fetch('http://localhost:3001/perfumes', {
+    return fetch(`${API_HOST}/perfumes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ export function likeRecommendation(recommendation) {
   var modPerfume = Object.assign({}, recommendation, {likes: recommendation.likes + 1})
   // {debugger};
   return (dispatch) => {
-    return fetch('http://localhost:3001/perfumes/' + `${recommendation.id}`, {
+    return fetch(`${API_HOST}/perfumes` + `${recommendation.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'

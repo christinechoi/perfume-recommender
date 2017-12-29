@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 export function signIn({ email, password }, history ) {
   // {debugger};
   return (dispatch) => {
-    return fetch('http://localhost:3001/signup', {
+    return fetch(`${API_HOST}/signup`, {
 
       method: 'POST',
       headers: {
@@ -38,7 +38,7 @@ export function logOut(event, history) {
 export function logIn({ email, password }, history ) {
   // {debugger};
   return (dispatch) => {
-    return fetch('http://localhost:3001/users/login', {
+    return fetch(`${API_HOST}/users/login`, {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
@@ -69,7 +69,7 @@ export function saveRecommendation(target, recommendation) {
   const API_URL = process.env.REACT_APP_API_URL
 
   return (dispatch) => {
-    return fetch('http://localhost:3001/perfumes', {
+    return fetch(`${API_HOST}/perfumes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
