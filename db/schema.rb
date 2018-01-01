@@ -12,18 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20171120230430) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "perfumes", id: false, force: :cascade do |t|
+  create_table "perfumes", force: :cascade do |t|
     t.string   "name"
     t.string   "brand"
-    t.string   "pictureURL"
-    t.integer  "likes"
-    t.integer  "id",         limit: 16
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

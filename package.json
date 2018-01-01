@@ -16,7 +16,7 @@
     "prebuild": "npm-run-all clean-public lint build:html",
     "build": "babel-node tools/build.js",
     "postbuild": "babel-node tools/publicServer.js"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/christinechoi/smell-o-tron-api.git"

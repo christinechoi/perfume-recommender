@@ -5,7 +5,7 @@ class CreatePerfumes < ActiveRecord::Migration[5.0]
       t.string :brand
       t.string :pictureURL
       t.integer :likes
-      t.integer :id, :limit => 16
+      t.integer :id, :limit => 4
 
       t.timestamps
     end
