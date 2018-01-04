@@ -15,7 +15,9 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm-run-all clean-public lint build:html",
     "build": "babel-node tools/build.js",
-    "postbuild": "babel-node tools/publicServer.js"
+    "postbuild": "babel-node tools/publicServer.js",
+    "babel-version": "babel --version"
+
   },
   "repository": {
     "type": "git",
