@@ -3,7 +3,7 @@
   "name": "smell-o-tron",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://polar-crag-53075.herokuapp.com/",
+  "proxy": "https://vast-caverns-21797.herokuapp.com/",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
