@@ -5,13 +5,15 @@ import { BrowserRouter as Router, withRouter, Route, Link, Switch, Redirect } fr
 import { fetchPerfume, deletePerfume, getRecommendation } from  './actions/perfumesActions';
 import { logOut } from './actions/userActions';
 import './App.css';
+import './semantic-ui-css/dist/semantic.min.css';
+
 import NavBarContainer from './containers/NavBarContainer';
 import PerfumesListContainer from './containers/PerfumesListContainer';
 import RecommendationsContainer from './containers/RecommendationsContainer';
 import SavedContainer from './containers/SavedContainer';
 import SignInContainer from './containers/SignInContainer';
 import LogInContainer from './containers/LogInContainer';
-import { Button, Container, Segment, Menu } from './semantic-ui-react/dist/semantic.min.css'
+import { Button, Container, Segment, Menu } from 'semantic-ui-react';
 
 class App extends Component {
   render() {
