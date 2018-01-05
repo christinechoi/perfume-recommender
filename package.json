@@ -1,0 +1,26 @@
+{
+  "name": "smell-o-tron-api",
+  "version": "1.0.0",
+  "description": "Perfume recommendation generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "cd client && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christinechoi/smell-o-tron-api.git"
+  },
+  "author": "christine choi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christinechoi/smell-o-tron-api/issues"
+  },
+  "homepage": "https://github.com/christinechoi/smell-o-tron-api#readme"
+}
