@@ -11,7 +11,7 @@
     "start": "node server.js",
     "dev": "nf start -p 3000 --procfile Procfile.dev",
     "clean-public": "npm run remove-public && mkdir public",
-    "remove-public": "node_modules/.bin/rimraf ./public",
+    "remove-public": "rimraf ./public",
     "build:html": "babel-node tools/buildHtml.js",
     "heroku-prebuild": "npm run clean-public && npm run build:html",
     "build": "babel-node tools/build.js",
