@@ -15,7 +15,7 @@
     "build:html": "babel-node tools/buildHtml.js",
    
     "build": "babel-node tools/build.js",
-    "heroku-postbuild": "babel-node tools/publicServer.js",
+    
     "babel-version": "babel --version"
   },
   "repository": {
