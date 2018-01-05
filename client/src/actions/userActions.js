@@ -1,4 +1,7 @@
+
 import fetch from 'isomorphic-fetch';
+
+const API_HOST = 'https://vast-caverns-21797.herokuapp.com';
 
 export function signIn({ email, password }, history ) {
   // {debugger};

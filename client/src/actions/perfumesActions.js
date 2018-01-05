@@ -1,5 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
+const API_HOST = 'https://vast-caverns-21797.herokuapp.com';
+
 export function fetchPerfume(input) {
   return (dispatch) => {
     dispatch({ type: 'START_FETCHING_PERFUMES_REQUEST' });
