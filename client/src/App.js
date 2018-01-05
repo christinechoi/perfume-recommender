@@ -5,7 +5,9 @@ import { BrowserRouter as Router, withRouter, Route, Link, Switch, Redirect } fr
 import { fetchPerfume, deletePerfume, getRecommendation } from  './actions/perfumesActions';
 import { logOut } from './actions/userActions';
 import './App.css';
-import './semantic/dist/semantic.min.css';
+
+
+import './styles.global.scss';
 
 import NavBarContainer from './containers/NavBarContainer';
 import PerfumesListContainer from './containers/PerfumesListContainer';

@@ -9,8 +9,9 @@ import rootReducer from './reducers/rootReducer';
 import { Provider } from 'react-redux';
 import perfumesReducer from './reducers/perfumesReducer';
 
-import './semantic-ui/dist/semantic.min.css';
-import './index.css';
+import '../node_modules/semantic-ui/dist/semantic.min.css';
+
+import './styles.global.scss';
 
 const store = createStore(
   rootReducer, 
