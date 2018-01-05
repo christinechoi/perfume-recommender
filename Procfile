@@ -1,4 +1,4 @@
-web: babel-node tools/publicServer.js 
+web: cd clint && npm start
 
 log: tail -f log/development.log
 
