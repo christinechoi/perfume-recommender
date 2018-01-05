@@ -1,4 +1,4 @@
-web: cd clint && npm start
+web: cd client && npm start
 
 log: tail -f log/development.log
 
