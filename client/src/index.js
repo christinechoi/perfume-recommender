@@ -12,6 +12,9 @@ import perfumesReducer from './reducers/perfumesReducer';
 import './semantic-ui/dist/semantic.min.css';
 import './styles.global.scss';
 
+
+import '../semantic/dist/semantic.css';
+
 const store = createStore(
   rootReducer, 
   compose(
