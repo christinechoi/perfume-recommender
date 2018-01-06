@@ -6,6 +6,7 @@ import { fetchPerfume, deletePerfume, getRecommendation } from  './actions/perfu
 import { logOut } from './actions/userActions';
 import './App.css';
 
+import './semantic-ui/dist/semantic.min.css';
 import './styles.global.scss';
 
 import NavBarContainer from './containers/NavBarContainer';
