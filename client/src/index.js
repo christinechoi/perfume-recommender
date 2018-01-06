@@ -9,7 +9,7 @@ import rootReducer from './reducers/rootReducer';
 import { Provider } from 'react-redux';
 import perfumesReducer from './reducers/perfumesReducer';
 
-import '../node_modules/semantic-ui/dist/semantic.min.css';
+import './semantic-ui/dist/semantic.min.css';
 
 import './styles.global.scss';
 
