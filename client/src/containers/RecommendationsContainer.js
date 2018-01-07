@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import RecommendationsList from '../components/RecommendationsList';
 import { connect } from 'react-redux';
-import { Segment, Button, Header, Icon } from 'semantic-ui-react';
+// import { Segment, Button, Header, Icon } from 'semantic-ui-react';
+import { Button } from './semantic-ui/dist/components/button.min.css';
+import { Header } from './semantic-ui/dist/components/header.css';
+import { Segment } from './semantic-ui/dist/components/segment.min.css';
+import { Icon } from './semantic-ui/dist/components/icon.min.css';
+
 import { saveRecommendation } from '../actions/perfumesActions';
 import { withRouter} from 'react-router-dom';
 

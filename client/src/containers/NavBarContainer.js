@@ -3,7 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { BrowserRouter as Router, withRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
 import { logOut } from '../actions/userActions';
-import { Button, Container, Segment, Menu } from 'semantic-ui-react'
+// import { Button, Container, Segment, Menu } from 'semantic-ui-react'
+import { Button } from './semantic-ui/dist/components/button.min.css';
+import { Container } from './semantic-ui/dist/components/container.css';
+import { Segment } from './semantic-ui/dist/components/segment.min.css';
+import { Menu } from './semantic-ui/dist/components/menu.min.css';
+
+
 
 class NavBarContainer extends Component {
   constructor(props) {
