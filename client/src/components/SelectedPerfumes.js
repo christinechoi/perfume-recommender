@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid, Card, Button, Image, Divider } from 'semantic-ui-react';
+import { Grid, Card, Button, Image, Divider } from '../styles.global.scss'//'semantic-ui-react';
 // import { Grid } from '../semantic-ui/dist/components/grid.min.css';
 // import { Card } from '../semantic-ui/dist/components/card.css';
 // import { Button } from '../semantic-ui/dist/components/button.min.css';
