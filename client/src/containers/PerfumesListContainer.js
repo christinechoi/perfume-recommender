@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react';
 
-// import { Grid, Form, Divider, Segment, Sticky } from 'semantic-ui-react';
-import { Grid } from '../semantic-ui/dist/components/grid.min.css';
-import { Form } from '../semantic-ui/dist/components/form.css';
-import { Segment } from '../semantic-ui/dist/components/segment.min.css';
-import { Divider } from '../semantic-ui/dist/components/divider.min.css';
-import { Sticky } from '../semantic-ui/dist/components/sticky.min.css';
+import { Grid, Form, Divider, Segment, Sticky } from 'semantic-ui-react';
+// import { Grid } from '../semantic-ui/dist/components/grid.min.css';
+// import { Form } from '../semantic-ui/dist/components/form.css';
+// import { Segment } from '../semantic-ui/dist/components/segment.min.css';
+// import { Divider } from '../semantic-ui/dist/components/divider.min.css';
+// import { Sticky } from '../semantic-ui/dist/components/sticky.min.css';
 
 
 import SearchResults from '../components/SearchResults';

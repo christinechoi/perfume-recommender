@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-// import { Grid, Form, Button, Container, Menu } from 'semantic-ui-react';
-import { Grid } from '../semantic-ui/dist/components/grid.min.css';
-import { Button } from '../semantic-ui/dist/components/button.min.css';
-import { Form } from '../semantic-ui/dist/components/header.css';
-import { Container } from '../semantic-ui/dist/components/container.min.css';
+import { Grid, Form, Button, Container, Menu } from 'semantic-ui-react';
+// import { Grid } from '../semantic-ui/dist/components/grid.min.css';
+// import { Button } from '../semantic-ui/dist/components/button.min.css';
+// import { Form } from '../semantic-ui/dist/components/header.css';
+// import { Container } from '../semantic-ui/dist/components/container.min.css';
 
 import { logIn, logOut } from '../actions/userActions';
 import { connect } from 'react-redux';
