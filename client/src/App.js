@@ -15,7 +15,7 @@ import RecommendationsContainer from './containers/RecommendationsContainer';
 import SavedContainer from './containers/SavedContainer';
 import SignInContainer from './containers/SignInContainer';
 import LogInContainer from './containers/LogInContainer';
-import { Button, Container, Segment, Menu } from 'semantic-ui-react';
+import { Button, Container, Segment, Menu } from './semantic-ui-react/dist/components';
 
 class App extends Component {
   render() {
