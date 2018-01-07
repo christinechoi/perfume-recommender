@@ -8,6 +8,10 @@ import './App.css';
 
 import './semantic-ui/dist/semantic.min.css';
 import './styles.global.scss';
+import { Button } from './semantic-ui/dist/components/button.min.css';
+import { Container } from './semantic-ui/dist/components/container.css';
+import { Segment } from './semantic-ui/dist/components/segment.min.css';
+import { Menu } from './semantic-ui/dist/components/menu.min.css';
 
 import NavBarContainer from './containers/NavBarContainer';
 import PerfumesListContainer from './containers/PerfumesListContainer';
@@ -15,10 +19,6 @@ import RecommendationsContainer from './containers/RecommendationsContainer';
 import SavedContainer from './containers/SavedContainer';
 import SignInContainer from './containers/SignInContainer';
 import LogInContainer from './containers/LogInContainer';
-import { Button } from './semantic-ui/dist/components/button.min.css';
-import { Container } from './semantic-ui/dist/components/container.css';
-import { Segment } from './semantic-ui/dist/components/segment.min.css';
-import { Menu } from './semantic-ui/dist/components/menu.min.css';
 
 class App extends Component {
   render() {
