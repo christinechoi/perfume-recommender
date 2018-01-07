@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 // import { Grid, Form, Button } from 'semantic-ui-react';
+import { Grid } from './semantic-ui/dist/components/grid.min.css';
 import { Button } from './semantic-ui/dist/components/button.min.css';
 import { Form } from './semantic-ui/dist/components/header.css';
 import { Segment } from './semantic-ui/dist/components/segment.min.css';
