@@ -8,7 +8,7 @@ import { Button, Container, Segment, Menu } from 'semantic-ui-react'
 // import { Container } from '../semantic-ui/dist/components/container.css';
 // import { Segment } from '../semantic-ui/dist/components/segment.min.css';
 // import { Menu } from '../semantic-ui/dist/components/menu.min.css';
-
+import '../styles.global.scss';
 
 
 class NavBarContainer extends Component {
@@ -42,7 +42,51 @@ class NavBarContainer extends Component {
       <div>
         <Container >
           <Menu compact>
-           hi
+            <Menu.Item 
+              as={Link} 
+              to='/'
+              name='Home'
+            >Home
+            </Menu.Item>
+
+            { this.state.isAuthenticated ?            
+            <Menu.Item
+            as={Link}
+            to='/savedrecommendations'
+            name='savedrecommendations'
+             
+              
+            name='All Saved Recommendations'>
+              All Saved Recommendations
+            </Menu.Item> : null
+            }
+
+            { this.state.isAuthenticated ? null :
+            
+            <Menu.Item
+              as={Link}
+              to='/signin'
+              name='signup'>
+              Sign Up 
+            </Menu.Item>
+            }
+
+            { this.state.isAuthenticated ? null : 
+            <Menu.Item
+              as={Link}
+              to='/users/login'
+              name='login'>
+              Log In 
+            </Menu.Item>
+            }
+
+            { this.state.isAuthenticated ? 
+            <Menu.Item
+              onClick={this.handleLogout.bind(this)}
+              name='logout'>
+              Log Out
+            </Menu.Item> : null }
+
           </Menu>
         </Container>
       </div>
