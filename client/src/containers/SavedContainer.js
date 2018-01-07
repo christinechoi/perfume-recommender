@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import SavedRecommendations from '../components/SavedRecommendations';
-
 import { connect } from 'react-redux';
 
-import { Button, Header, Icon } from 'semantic-ui-react';
+
+import { Button } from '../semantic-ui/dist/components/button.min.css';
+import { Header } from '../semantic-ui/dist/components/header.css';
+import { Icon } from '../semantic-ui/dist/components/icon.min.css';
+
+// import { Button, Header, Icon } from 'semantic-ui-react';
 import { saveRecommendation, fetchSavedRecs } from '../actions/perfumesActions';
 import { bindActionCreators } from 'redux';
 
