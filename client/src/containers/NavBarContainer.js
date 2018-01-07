@@ -5,7 +5,7 @@ import { BrowserRouter as Router, withRouter, Route, Link, Switch, Redirect } fr
 import { logOut } from '../actions/userActions';
 import '../styles.global.scss';
 
-import { Button, Container, Segment, Menu } from 'semantic-ui-react'
+import { Button, Container, Segment, Menu } from '../styles.global.scss'//'semantic-ui-react'
 // import { Button } from '../semantic-ui/dist/components/button.min.css';
 // import { Container } from '../semantic-ui/dist/components/container.css';
 // import { Segment } from '../semantic-ui/dist/components/segment.min.css';

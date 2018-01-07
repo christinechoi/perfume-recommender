@@ -8,6 +8,7 @@ import './App.css';
 
 import './semantic-ui/dist/semantic.min.css';
 import './styles.global.scss';
+
 import { Button } from './semantic-ui/dist/components/button.min.css';
 import { Container } from './semantic-ui/dist/components/container.css';
 import { Segment } from './semantic-ui/dist/components/segment.min.css';
