@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import { Grid, Form, Divider, Segment, Sticky } from 'semantic-ui-react';
+import { Grid, Form, Divider, Segment, Sticky } from '../styles.global.scss'//'semantic-ui-react';
 // import { Grid } from '../semantic-ui/dist/components/grid.min.css';
 // import { Form } from '../semantic-ui/dist/components/form.css';
 // import { Segment } from '../semantic-ui/dist/components/segment.min.css';
