@@ -42,51 +42,7 @@ class NavBarContainer extends Component {
       <div>
         <Container >
           <Menu compact>
-            <Menu.Item 
-              as={Link} 
-              to='/'
-              name='Home'
-            >Home
-            </Menu.Item>
-
-            { this.state.isAuthenticated ?            
-            <Menu.Item
-            as={Link}
-            to='/savedrecommendations'
-            name='savedrecommendations'
-             
-              
-            name='All Saved Recommendations'>
-              All Saved Recommendations
-            </Menu.Item> : null
-            }
-
-            { this.state.isAuthenticated ? null :
-            
-            <Menu.Item
-              as={Link}
-              to='/signin'
-              name='signup'>
-              Sign Up 
-            </Menu.Item>
-            }
-
-            { this.state.isAuthenticated ? null : 
-            <Menu.Item
-              as={Link}
-              to='/users/login'
-              name='login'>
-              Log In 
-            </Menu.Item>
-            }
-
-            { this.state.isAuthenticated ? 
-            <Menu.Item
-              onClick={this.handleLogout.bind(this)}
-              name='logout'>
-              Log Out
-            </Menu.Item> : null }
-
+           hi
           </Menu>
         </Container>
       </div>
