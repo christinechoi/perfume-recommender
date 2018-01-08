@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "cd client && react-scripts start",
-    "build": "cd client && react-scripts build",
+    "build": "cd client && react-scripts build && npm run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
