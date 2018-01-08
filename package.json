@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "cd client && react-scripts start",
-    "build": "cd client && react-scripts build && npm run build",
+    "build": "cd client && react-scripts build",
+    "heroku-postbuild": "npm run build && webpack -p --config ./webpack.config.prod.js --progress",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
