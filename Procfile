@@ -1,4 +1,4 @@
-web: cd client && npm run server
+web: cd client && npm run build
 
 log: tail -f log/development.log
 
