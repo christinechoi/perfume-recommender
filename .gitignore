@@ -19,3 +19,10 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+
+# Prevent build artifacts from going into revision control
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
