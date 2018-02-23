@@ -1,4 +1,3 @@
-web: cd client && rake start
-
+web: rake start
 
 api: bundle exec rails s -p 3001
