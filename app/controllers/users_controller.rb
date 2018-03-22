@@ -1,4 +1,4 @@
-# require 'JWT'
+
 
 class UsersController < ApplicationController
 
