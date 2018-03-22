@@ -1,4 +1,4 @@
-require 'JsonWebToken'
+require 'JWT'
 
 class UsersController < ApplicationController
 
