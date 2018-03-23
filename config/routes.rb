@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   #add our register route
 
-  root 'users#index'
   post 'signup', to: 'users#create'
   get 'users', to: 'users#index'
   
