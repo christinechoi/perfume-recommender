@@ -13,10 +13,6 @@ import SignInContainer from './containers/SignInContainer';
 import LogInContainer from './containers/LogInContainer';
 import { Button, Container, Segment, Menu } from 'semantic-ui-react'
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/public/index.html'));
-});
-
 class App extends Component {
   render() {
     // {debugger};
