@@ -1,1 +1,1 @@
-web: bundle exec rails s
+web: npm run server
