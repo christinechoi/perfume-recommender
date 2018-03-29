@@ -5,6 +5,12 @@ class ApplicationController < ActionController::API
 
 # end  
   protected
+
+
+  def fallback_index_html
+    render :file => 'public/index.html'
+  end
+
   
   def authenticate_request!
     if !payload || !JsonWebToken.valid_payload(payload.first)
