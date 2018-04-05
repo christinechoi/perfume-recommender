@@ -7,15 +7,7 @@ import { fetchSavedRecs } from '../actions/perfumesActions';
 import { Button, Container, Segment, Menu } from 'semantic-ui-react'
 
 class NavBarContainer extends Component {
-  constructor(props) {
-    super(props); {
-
-      this.state = {
-        isAuthenticated: this.props.isAuthenticated
-      }
-    }
-  }
-
+  
 
   handleLogout = event => {
     event.preventDefault();
@@ -44,7 +36,7 @@ class NavBarContainer extends Component {
             >Home
             </Menu.Item>
 
-            { this.state.isAuthenticated ?            
+            { this.props.isAuthenticated ?            
             <Menu.Item
               onClick={this.handleClick.bind(this)}
               
@@ -53,7 +45,7 @@ class NavBarContainer extends Component {
             </Menu.Item> : null
             }
 
-            { this.state.isAuthenticated ? null :
+            { this.props.isAuthenticated ? null :
             
             <Menu.Item
               as={Link}
@@ -63,7 +55,7 @@ class NavBarContainer extends Component {
             </Menu.Item>
             }
 
-            { this.state.isAuthenticated ? null : 
+            { this.props.isAuthenticated ? null : 
             <Menu.Item
               as={Link}
               to='/users/login'
@@ -72,7 +64,7 @@ class NavBarContainer extends Component {
             </Menu.Item>
             }
 
-            { this.state.isAuthenticated ? 
+            { this.props.isAuthenticated ? 
             <Menu.Item
               onClick={this.handleLogout.bind(this)}
               name='logout'>
