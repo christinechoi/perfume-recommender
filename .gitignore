@@ -22,6 +22,7 @@
 
 
 # Prevent build artifacts from going into revision control
+client/node_modules
 /node_modules
 npm-debug.log
 .DS_Store
