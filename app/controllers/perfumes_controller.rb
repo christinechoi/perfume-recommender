@@ -6,7 +6,7 @@ class PerfumesController < ApplicationController
   end
 
   def create
-    @perfume = Perfume.new(perfume_params)
+    @perfume = Perfume.new(perfume_params) 
     if @perfume.save 
       render :json => @perfume
     else
@@ -19,7 +19,7 @@ class PerfumesController < ApplicationController
 private
 
   def perfume_params
-    params.require(:perfume).permit(:name, :brand, :url)
+    params.require(:perfume).permit(:name, :brand, :url, :pictureURL)
   end
 
 end
