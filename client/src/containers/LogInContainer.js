@@ -33,25 +33,28 @@ class LogInContainer extends Component {
     return (
       
       <div>
-        <Form onSubmit={this.handleOnSubmit.bind(this)} >
-          <Form.Field>
-            <label>Email</label>
-            <input 
-              type="email" 
-              name="email"
-              onChange={this.handleChange.bind(this)}   />
-          </Form.Field> 
-
-          <Form.Field>
-            <label>Password</label>
-            <input 
-              type="password"
-              name="password" 
-              onChange={this.handleChange.bind(this)} />
-          </Form.Field>
-
-          <Button type='submit'>Submit</Button>
-        </Form>
+        <Container>
+          <h1></h1>
+          <Form onSubmit={this.handleOnSubmit.bind(this)} >
+            <Form.Field width={3}>
+              <label>Email</label>
+              <input 
+                type="email" 
+                placeholder='Email' 
+                name="email"
+                onChange={this.handleChange.bind(this)}   />
+            </Form.Field> 
+            <Form.Field width={3}>
+              <label>Password</label>
+              <input 
+                type="password"
+                placeholder='Password' 
+                name="password" 
+                onChange={this.handleChange.bind(this)} />
+            </Form.Field>
+            <Button type='submit'>Submit</Button>
+          </Form>
+        </Container>
       </div>
     )
   }

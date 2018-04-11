@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, Form, Button } from 'semantic-ui-react';
+import { Grid, Form, Button, Container} from 'semantic-ui-react';
 import { signIn } from '../actions/userActions';
+import { SignIn } from '../components/SignIn';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -35,29 +36,33 @@ class SignInContainer extends Component {
 
   render() {
     return (
-      
       <div>
+
+      <Container>
+        <h1></h1>
         <Form onSubmit={this.handleOnSubmit.bind(this)} >
-          <Form.Field>
-            
+          
+          <Form.Field width={3} >
             <label>Email</label>
             <input 
               type="email" 
+              placeholder='Email' 
               name="email"
               onChange={this.handleChange.bind(this)}   />
           </Form.Field> 
 
-          <Form.Field>
+          <Form.Field width={3}>
             <label>Password</label>
             <input 
               type="password"
+              placeholder='Password' 
               name="password" 
               onChange={this.handleChange.bind(this)} />
           </Form.Field>
-
+        
           <Button type='submit'>Submit</Button>
-
         </Form>
+       </Container>
       </div>
     )
   }

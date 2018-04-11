@@ -49,10 +49,9 @@ class PerfumesListContainer extends Component {
   }
 
   render() {
-    // {debugger};
+    {debugger};
     return(
       <div>
-        <Divider></Divider>
 
         { (this.props.selectedPerfumes.length === 0) ? null :
           <SelectedPerfumes
@@ -87,8 +86,6 @@ class PerfumesListContainer extends Component {
           </Grid>
         }
 
-        <Segment></Segment>
-
         {(this.props.recommendations.length > 0) ? null :
           <SearchResults 
             perfumes={this.props.perfumes} 
@@ -102,7 +99,7 @@ class PerfumesListContainer extends Component {
 }
 
 const mapStateToProps = (state) => { 
-  // {debugger};
+  {debugger};
   return { 
     perfumes: state.perfumes.perfumes,
     selectedPerfumes: state.perfumes.selectedPerfumes,

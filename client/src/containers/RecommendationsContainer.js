@@ -16,8 +16,6 @@ class RecommendationsContainer extends Component {
     };
   }
 
-
-
   handleOnClick = (recommendation, event)  => {
     event.preventDefault();
     const { saveRecommendation, history } = this.props;
@@ -33,12 +31,9 @@ class RecommendationsContainer extends Component {
   }
 
   render() {
-    // {debugger};
+    {debugger};
     return (
       <div>
-
-      <Segment></Segment>
-      
         {(this.props.recommendations.length === 0) ? null :
           <RecommendationsList 
             recommendations={this.props.recommendations} 
