@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Form, Button, Container} from 'semantic-ui-react';
 import { signIn } from '../actions/userActions';
-import { SignIn } from '../components/SignIn';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
