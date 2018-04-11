@@ -56,16 +56,28 @@ export default (state = initialState, action) => {
       {debugger};
       return {
         ...state,
-        savedRecommendations: state.savedRecommendations.concat(action.payload.savedRecommendation)
+        savedRecommendations: state.savedRecommendations.concat(action.payload)
       }
       
     case 'FETCH_SAVED_RECS':
-      {debugger};
+      
+      let wholeArray = [];
 
-      return {
-        ...state,
-        savedRecommendations: state.savedRecommendations.concat(action.payload)
-      }
+      action.payload.filter(function(perfume) {
+        return wholeArray.indexOf(perfume.id) == -1 && wholeArray.push(perfume.id)
+      });
+
+      let filteredArray = [];
+
+      wholeArray.map(function(perfumeId) {
+        var item = action.payload.find(function(item) {
+            return item.id === perfumeId
+          });
+        filteredArray.push(item)
+      });
+
+      return { ...state, savedRecommendations: filteredArray}
+      
     default:
       // {debugger};
       return state;
