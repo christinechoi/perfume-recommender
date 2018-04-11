@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 import { Grid, Form, Divider, Segment, Sticky } from 'semantic-ui-react';
 import SearchResults from '../components/SearchResults';
+import RecommendationsList from '../components/RecommendationsList';
 import SelectedPerfumes from '../components/SelectedPerfumes';
-import { fetchPerfume, addPerfume, deletePerfume, getRecommendation } from '../actions/perfumesActions';
+import { fetchPerfume, addPerfume, deletePerfume, getRecommendation, saveRecommendation, fetchSavedRecs } from '../actions/perfumesActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -13,12 +14,21 @@ class PerfumesListContainer extends Component {
 
     this.state = {
       value: '',
-      perfumes: []
+      perfumes: [],
+      recommendations: []
     };
   }
 
   testFunction = event => {
     {debugger};
+  }
+
+  handleSaveClick = (recommendation, event)  => {
+    event.preventDefault();
+    const { saveRecommendation, history } = this.props;
+    {debugger};
+    saveRecommendation(event.target, recommendation);
+    history.push('/savedrecommendations')
   }
 
   removeOnClick = (perfume, event) => {
@@ -86,6 +96,14 @@ class PerfumesListContainer extends Component {
           </Grid>
         }
 
+        {(this.props.recommendations.length === 0) ? null :
+          <RecommendationsList 
+            recommendations={this.props.recommendations} 
+            handleOnClick={this.handleSaveClick} > 
+            Recommendations below: 
+          </RecommendationsList>
+        }
+
         {(this.props.recommendations.length > 0) ? null :
           <SearchResults 
             perfumes={this.props.perfumes} 
@@ -104,7 +122,9 @@ const mapStateToProps = (state) => {
     perfumes: state.perfumes.perfumes,
     selectedPerfumes: state.perfumes.selectedPerfumes,
     savedPerfumes: state.perfumes.savedPerfumes,
-    recommendations: state.perfumes.recommendations
+    recommendations: state.perfumes.recommendations,
+    basedOn: state.perfumes.basedOn,
+    savedRecommendations: state.perfumes.savedRecommendations
   };
 };
 
@@ -113,9 +133,12 @@ const mapDispatchToProps = (dispatch) => {
     fetchPerfume: fetchPerfume,
     addPerfume: addPerfume,
     deletePerfume: deletePerfume,
-    getRecommendation: getRecommendation    
+    getRecommendation: getRecommendation,
+    saveRecommendation: saveRecommendation,
+    fetchSavedRecs: fetchSavedRecs 
   }, dispatch);
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(PerfumesListContainer);
 
