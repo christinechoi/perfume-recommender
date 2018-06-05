@@ -54,12 +54,12 @@ class PerfumesListContainer extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    {debugger};
+    // {debugger};
     this.props.fetchPerfume(this.state);
   }
 
   render() {
-    {debugger};
+    // {debugger};
     return(
       <div>
 
@@ -117,7 +117,7 @@ class PerfumesListContainer extends Component {
 }
 
 const mapStateToProps = (state) => { 
-  {debugger};
+  // {debugger};
   return { 
     perfumes: state.perfumes.perfumes,
     selectedPerfumes: state.perfumes.selectedPerfumes,

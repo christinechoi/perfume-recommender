@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     # binding.pry
     user = User.new(user_params)
     if user.save
-      binding.pry
       authenticate_for(user)
 
       render json: { message: 'User created successfully', user: user.to_json },
