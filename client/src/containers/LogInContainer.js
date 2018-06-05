@@ -21,10 +21,7 @@ class LogInContainer extends Component {
     event.preventDefault();
     const { logIn, history } = this.props;
     logIn(this.state)
-      // .then(() => {
-      //   history.push('/')
-      // })
-      history.push('/')
+    history.push('/')
   }
 
   handleChange = event => {

@@ -19,14 +19,9 @@ class PerfumesListContainer extends Component {
     };
   }
 
-  testFunction = event => {
-    {debugger};
-  }
-
   handleSaveClick = (recommendation, event)  => {
     event.preventDefault();
     const { saveRecommendation, history } = this.props;
-    {debugger};
     saveRecommendation(event.target, recommendation);
     history.push('/savedrecommendations')
   }
@@ -43,7 +38,8 @@ class PerfumesListContainer extends Component {
 
   handleClick = (idArray, event) => {
     event.preventDefault();
-    this.props.getRecommendation(event.target, idArray)
+    debugger;
+    this.props.getRecommendation(idArray)
   }
 
   handleChange = event => {
@@ -59,7 +55,6 @@ class PerfumesListContainer extends Component {
   }
 
   render() {
-    // {debugger};
     return(
       <div>
 
@@ -117,7 +112,6 @@ class PerfumesListContainer extends Component {
 }
 
 const mapStateToProps = (state) => { 
-  // {debugger};
   return { 
     perfumes: state.perfumes.perfumes,
     selectedPerfumes: state.perfumes.selectedPerfumes,
