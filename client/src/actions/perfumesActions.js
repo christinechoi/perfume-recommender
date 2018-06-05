@@ -29,17 +29,7 @@ export function deletePerfume(target, perfume) {
 }
 
 export function getRecommendation(target, ids) {
-  return (dispatch) => {
-    // {debugger};
-
-    return fetch('http://scentsee.com/rest/recommendation/byFavoriteFragranceId?ids[]=' + ids)
-      .then(response => {
-        console.log(response);
-        return response.json()
-      }).then(responseJson => {
-        dispatch({type: 'GET_RECOMMENDATION', payload: responseJson})
-    })
-  }
+   
 }
 
 export function saveRecommendation(target, recommendation) {

@@ -37,32 +37,52 @@ export function logOut(event, history) {
 
 export function logIn({ email, password }, history ) {
   // {debugger};
+  console.log("hitting logIn func...")
   return (dispatch) => {
-    return fetch('http://localhost:3001/users/login', {
+    return fetch('http://localhost:3001/user_token', {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
       },
       body: JSON.stringify({
-        "email" : email,
-        "password" : password
+        "auth": {
+          "email" : email,
+          "password" : password
+        }
       })
-    }).then(response => {
+    })
+    .then(response => {
       // {debugger};
-        return response.json().then(response =>  {
+        // return response.json().then(response =>  {
+        // if (!response.status == 'ok') {
+        //   // {debugger};
+        //   console.log("dispatching login_request")
+        //   dispatch({type: 'LOGIN_REQUEST', payload: JSON.parse(response.user)});
+        //   return Promise.reject(response)
+        // } else {
+        //   // {debugger};
+        //   console.log("dispatching login_success")
+        //   console.log("response: ", response)
+        //   localStorage.setItem('token', response.jwt)
+        //   dispatch({type: 'LOGIN_SUCCESS', payload: JSON.parse(response.jwt)});
+        // }
         if (!response.status == 'ok') {
           // {debugger};
-          dispatch({type: 'LOGIN_REQUEST', payload: JSON.parse(response.user)});
+          console.log("dispatching login_request")
+          dispatch({type: 'LOGIN_REQUEST', payload: response.json() });
           return Promise.reject(response)
         } else {
           // {debugger};
-          localStorage.setItem('token', response.token)
-          dispatch({type: 'LOGIN_SUCCESS', payload: JSON.parse(response.token)});
+          console.log("dispatching login_success")
+          console.log("response: ", response)
+          localStorage.setItem('token', response.jwt)
+          dispatch({type: 'LOGIN_SUCCESS', payload: response.json() });
+          // return Promise.resolve(response)
         }
       }).catch(err => console.log("Error: ", err))
-    })
+    }
   }
-}
+// }
 
 export function saveRecommendation(target, recommendation) {
   // {debugger};
