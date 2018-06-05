@@ -17,10 +17,14 @@ class LogInContainer extends Component {
   } 
 
   handleOnSubmit = event => {
+    console.log("hitting handleOnSubmit...")
     event.preventDefault();
     const { logIn, history } = this.props;
-    logIn(this.state);
-    history.push('/')
+    logIn(this.state)
+      // .then(() => {
+      //   history.push('/')
+      // })
+      history.push('/')
   }
 
   handleChange = event => {

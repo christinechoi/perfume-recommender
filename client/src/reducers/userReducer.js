@@ -17,9 +17,9 @@ export default (state = initialState, action) => {
       }
     case 'LOGIN_SUCCESS':
       {debugger};
-
+      console.log("hitting reducer login_success")
       return {
-        isAuthenticating: false,
+        isAuthenticating: true,
         isAuthenticated: true,
         currentUser: action.user,
         errorMessage: null

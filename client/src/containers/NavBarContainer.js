@@ -24,7 +24,7 @@ class NavBarContainer extends Component {
   }
   
   render() {
-    {debugger};
+    // {debugger};
     return (
       <div>
         <Container >
@@ -79,7 +79,7 @@ class NavBarContainer extends Component {
 
 const mapStateToProps = (state) => { 
   return { 
-    isAuthenticated: state.user.isAuthenticated
+    isAuthenticated: state.user.isAuthenticating
   };
 };
 
