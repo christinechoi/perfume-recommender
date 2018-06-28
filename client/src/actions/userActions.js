@@ -44,12 +44,10 @@ export function logIn({ email, password }, history ) {
       headers: {
         'Content-Type':'application/json'
       },
-      body: JSON.stringify({
-        "auth": {
-          "email" : email,
-          "password" : password
-        }
-      })
+      body: JSON.stringify({ "user": {
+        "email" : email,
+        "password" : password
+      }})
     })
     .then(response => {
       // {debugger};
