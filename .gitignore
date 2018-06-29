@@ -27,3 +27,4 @@ client/node_modules
 npm-debug.log
 .DS_Store
 /*.env
+client/build/static/js

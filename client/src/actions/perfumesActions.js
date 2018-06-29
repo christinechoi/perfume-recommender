@@ -5,7 +5,7 @@ export function fetchPerfume(input) {
     dispatch({ type: 'START_FETCHING_PERFUMES_REQUEST' });
     // {debugger};
     let searchTerm = input.value
-    return fetch('http://scentsee.com/rest/collection/queryFull?query=' + searchTerm)
+    return fetch('https://scentsee.com/rest/collection/queryFull?query=' + searchTerm)
       .then(response => {
         return response.json()
       }).then(responseJson => {
@@ -32,7 +32,7 @@ export function getRecommendation(ids) {
     return (dispatch) => {
     // {debugger};
 
-    return fetch('http://scentsee.com/rest/recommendation/byFavoriteFragranceId?ids[]=' + ids)
+    return fetch('https://scentsee.com/rest/recommendation/byFavoriteFragranceId?ids[]=' + ids)
       .then(response => {
         console.log(response);
         return response.json()

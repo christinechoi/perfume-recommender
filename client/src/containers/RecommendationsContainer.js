@@ -20,6 +20,10 @@ class RecommendationsContainer extends Component {
     event.preventDefault();
     const { saveRecommendation, history } = this.props;
     {debugger};
+
+    // if not logged in, an alert should say 
+    // 'You must be logged in to save a recommendation!'
+    // and then history.push? or nothing 
     saveRecommendation(event.target, recommendation);
     history.push('/savedrecommendations')
   }
